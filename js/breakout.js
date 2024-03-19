@@ -17,7 +17,7 @@ ball = {
 //draw a ball on canvas
 function drawBall() {
     ctx.beginPath();
-    ctx.arc(75, 75, 50, 0, Math.PI * 2, true)
+    ctx.arc(ball.x, ball.y, ball.size, 0, Math.PI * 2)
     ctx.stroke()
 }
 
