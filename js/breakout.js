@@ -12,6 +12,10 @@ ball = {
     speed: 4,
     dx: 4,
     dy: -4,
+}
+
+//draw a ball on canvas
+function drawBall() {
     
 }
 
