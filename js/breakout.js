@@ -16,7 +16,7 @@ ball = {
 
 //draw a ball on canvas
 function drawBall() {
-    
+    ctx.beginPath()
 }
 
 
