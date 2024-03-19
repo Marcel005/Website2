@@ -2,7 +2,12 @@ show = document.getElementById('rules-btn')
 rules = document.getElementById('rules')
 close = document.getElementById('close-btn')
 canvas = document.getElementById('canvas')
-ctx
+ctx = canvas.getContext('2d')
+
+
+
+
+
 
 //open rules
 show.addEventListener('click', () => {
