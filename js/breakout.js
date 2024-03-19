@@ -1,4 +1,5 @@
 show = document.getElementById('rules-btn')
+rules = document.getElementById('rules')
 close = document.getElementById('close-btn')
 
 //open rules
