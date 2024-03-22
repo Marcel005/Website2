@@ -102,7 +102,9 @@ function movePaddle() {
 
 //Keydown event
 function keyDown(e) {
-    
+    if (e.key == 'ArrowRight' || e.key == 'Right') {
+        paddle.dx == paddle.speed
+    }
 }
 
 //keyboard event handlers
