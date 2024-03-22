@@ -141,7 +141,9 @@ function moveBall() {
     }
 
     //wall col (right)
-    if (ball)
+    if (ball.x + ball.size > canvas.width) {
+        ball.dx = -1 * ball.dx
+    }
 }
 
 // Update canvas drawing and animation
