@@ -89,6 +89,7 @@ function drawBricks() {
 
 //draw everything
 function draw() {
+    ctx.clearRect(0,0,canvas.width,canvas.height)
     drawPaddle()
     drawBall()
     drawScore()
@@ -103,7 +104,7 @@ function movePaddle() {
 //Keydown event
 function keyDown(e) {
     if (e.key == 'ArrowRight' || e.key == 'Right') {
-        paddle.dx == paddle.speed
+        paddle.dx = paddle.speed
     }
 }
 
