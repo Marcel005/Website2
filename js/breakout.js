@@ -54,7 +54,7 @@ for (let i = 0; i < brickRowCount; i++) {
 function drawBall() {
     ctx.beginPath();
     ctx.arc(ball.x, ball.y, ball.size, 0, Math.PI * 2)
-    ctx.fillStyle = 'green'
+    ctx.fillStyle = 'royalblue'
     ctx.fill()
     ctx.closePath()
 }
