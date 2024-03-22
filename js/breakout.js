@@ -130,8 +130,14 @@ function keyUp(e) {
 document.addEventListener('keydown', keyDown)
 document.addEventListener('keyup', keyUp)
 
+// Move ball fucntion
+function moveBall() {
+    
+}
+
 // Update canvas drawing and animation
 function update() {
+    moveBall()
     movePaddle()
     draw()
     requestAnimationFrame(update)
