@@ -156,6 +156,10 @@ function moveBall() {
     }
 
     //paddle collision
+    if (
+        ball.x - ball.size > paddle.x &&
+        ball.x + ball.size < paddle.x + paddle.w
+    )
 }
 
 // Update canvas drawing and animation
