@@ -4,6 +4,7 @@ close = document.getElementById('close-btn')
 canvas = document.getElementById('canvas')
 ctx = canvas.getContext('2d')
 
+
 score = 0
 
 brickRowCount = 9
@@ -54,7 +55,7 @@ for (let i = 0; i < brickRowCount; i++) {
 function drawBall() {
     ctx.beginPath();
     ctx.arc(ball.x, ball.y, ball.size, 0, Math.PI * 2)
-    ctx.fillStyle = 'royalblue'
+    ctx.fillStyle = 'white'
     ctx.fill()
     ctx.closePath()
 }
@@ -63,7 +64,7 @@ function drawBall() {
 function drawPaddle() {
     ctx.beginPath();
     ctx.rect(paddle.x, paddle.y, paddle.w, paddle.h)
-    ctx.fillStyle = 'brown'
+    ctx.fillStyle = 'white'
     ctx.fill()
     ctx.closePath()
 }
@@ -80,7 +81,7 @@ function drawBricks() {
         column.forEach(brick => {
             ctx.beginPath()
             ctx.rect(brick.x, brick.y, brick.w, brick.h)
-            ctx.fillStyle = brick.visible ? 'orange' : 'transparent';
+            ctx.fillStyle = brick.visible ? '#5B5858' : 'transparent';
             ctx.fill()
             ctx.closePath()
         })
@@ -149,7 +150,6 @@ function moveBall() {
     if (ball.y + ball.size > canvas.height) {
         ball.dy = 0
         ball.dx = 0
-        showAllBricks()
     }
 
     //wall col (left)
@@ -210,6 +210,7 @@ function update() {
     draw()
     requestAnimationFrame(update)
 }
+
 
 update()
 

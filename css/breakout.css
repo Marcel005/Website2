@@ -3,7 +3,7 @@
 }
 
 body {
-    background-color: #0095dd;
+    background-color: #141414;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -14,7 +14,7 @@ body {
 }
 
 canvas {
-    background: #f0f0f0;
+    background: grey;
     display: block;
     border-radius: 5px;
 }
@@ -28,8 +28,8 @@ h1 {
     cursor: pointer;
     border: 0;
     padding: 10px 20px;
-    background: black;
-    color: white;
+    background: white;
+    color: black;
     border-radius: 5px;
 }
 
@@ -64,3 +64,5 @@ h1 {
 .rules.show {
     transform: translateX(0);
 }
+
+
