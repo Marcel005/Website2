@@ -148,6 +148,7 @@ function moveBall() {
     //wall col (bottom)
     if (ball.y + ball.size > canvas.height) {
         ball.dy = 0
+        ball.dx = 0
         showAllBricks()
     }
 
