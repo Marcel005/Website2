@@ -3,6 +3,8 @@ rules = document.getElementById('rules')
 close = document.getElementById('close-btn')
 canvas = document.getElementById('canvas')
 ctx = canvas.getContext('2d')
+start = document.getElementById('start')
+retry = document.getElementById('retry')
 
 
 score = 0
@@ -15,18 +17,18 @@ ball = {
     x: canvas.width / 2,
     y: canvas.height / 2,
     size: 10,
-    speed: 4,
-    dx: 4,
-    dy: -4,
+    speed: 7,
+    dx: 7,
+    dy: -7,
 }
 
 //create paddle properties
 paddle = {
     x: canvas.width / 2 - 40,
     y: canvas.height - 20,
-    w: 80,
+    w: 150,
     h: 10,
-    speed: 8,
+    speed: 10,
     dx: 0,
 }
 
@@ -55,7 +57,7 @@ for (let i = 0; i < brickRowCount; i++) {
 function drawBall() {
     ctx.beginPath();
     ctx.arc(ball.x, ball.y, ball.size, 0, Math.PI * 2)
-    ctx.fillStyle = 'white'
+    ctx.fillStyle = 'blue'
     ctx.fill()
     ctx.closePath()
 }
@@ -64,7 +66,7 @@ function drawBall() {
 function drawPaddle() {
     ctx.beginPath();
     ctx.rect(paddle.x, paddle.y, paddle.w, paddle.h)
-    ctx.fillStyle = 'white'
+    ctx.fillStyle = 'black'
     ctx.fill()
     ctx.closePath()
 }
@@ -81,7 +83,7 @@ function drawBricks() {
         column.forEach(brick => {
             ctx.beginPath()
             ctx.rect(brick.x, brick.y, brick.w, brick.h)
-            ctx.fillStyle = brick.visible ? '#5B5858' : 'transparent';
+            ctx.fillStyle = brick.visible ? 'orange' : 'transparent';
             ctx.fill()
             ctx.closePath()
         })
@@ -137,7 +139,7 @@ function moveBall() {
     ball.y = ball.y + ball.dy
 
     //wall collision (top)
-    if (ball.y + ball.size < 0) {
+    if (ball.y - ball.size < 0) {
         ball.dy = -1 * ball.dy
     }
 
@@ -148,12 +150,12 @@ function moveBall() {
 
     //wall col (bottom)
     if (ball.y + ball.size > canvas.height) {
-        ball.dy = 0
-        ball.dx = 0
+        drawLoss()
+        pause()
     }
 
     //wall col (left)
-    if (ball.x + ball.size < 0) {
+    if (ball.x - ball.size < 0) {
         ball.dx = -1 * ball.dx
     }
 
@@ -188,11 +190,18 @@ function moveBall() {
 //increase score
 function increaseScore() {
     score++
+}
 
-    if (score == brickRowCount * brickColumnCount) {
-        score = 0
-        showAllBricks()
-    }
+function drawWin() {
+    ctx.font = '80px Arial'
+    ctx.fillStyle = 'blue'
+    ctx.fillText(`YOU WIN!!!`, canvas.width / 2 - 200, canvas.height / 2)
+}
+
+function drawLoss() {
+    ctx.font = '80px Arial'
+    ctx.fillStyle = 'red'
+    ctx.fillText(`YOU LOSE!!!`, canvas.width / 2 - 200, canvas.height / 2)
 }
 
 function showAllBricks() {
@@ -209,10 +218,35 @@ function update() {
     movePaddle()
     draw()
     requestAnimationFrame(update)
+    if (score == 45) {
+        drawWin()
+        ball.dx = 0
+        ball.dy = 0
+        ball.speed = 0
+    }
 }
 
+//draw initial canvas
+function begin() {
+    draw()
+}
 
-update()
+begin()
+
+
+
+//start game
+start.addEventListener('click', () => {
+    update()
+})
+
+//retry button
+retry.addEventListener('click', () => {
+    location.reload()
+    showAllBricks()
+    score = 0
+    clearRect()
+})
 
 
 

@@ -65,4 +65,24 @@ h1 {
     transform: translateX(0);
 }
 
+.start {
+    position: absolute;
+    color: black;
+    right: 120px;
+    top: 50vh;
+    border-radius: 300px;
+    width: 100px;
+    height: 100px;
+    font-size: 20px;
+}
 
+.retry {
+    position: absolute;
+    color: black;
+    right: 130px;
+    bottom: 20vh;
+    border-radius: 300px;
+    width: 80px;
+    height: 80px;
+    font-size: 15px;
+}
