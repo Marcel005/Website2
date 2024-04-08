@@ -45,4 +45,10 @@ body {
     margin-top: -100vh;
 }
 
+a {
+    color: white;
+}
 
+h1 {
+    line-height: 1.4;
+}
