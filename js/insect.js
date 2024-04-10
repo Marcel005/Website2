@@ -84,5 +84,7 @@ function getRandomLocation() {
 }
 
 function winGame() {
-    if
+    if (score == 60 && time <= 30) {
+        
+    }
 }
