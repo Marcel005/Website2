@@ -45,6 +45,14 @@ function catchInsect() {
     addInsects()
 }
 
+function startGame() {
+    setInterval(increaseTime, 1000)
+}
+
+function increaseTime() {
+    let m = Math.floor(seconds / 60)
+}
+
 function addInsects() {
     setTimeout(createInsect, 1000)
     setTimeout(createInsect, 1500)
