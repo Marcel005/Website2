@@ -34,7 +34,7 @@ function createInsect() {
     insect.style.left = `${x}px`
     insect.innerHTML = `<img src="${selected_insect.src}" alt="${selected_insect.alt}" style="transform: rotate(${Math.random() * 360}deg" />`
 
-    game_Container.appendChild(insect)
+    game_container.appendChild(insect)
 }
 
 
