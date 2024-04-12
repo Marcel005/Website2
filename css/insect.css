@@ -112,7 +112,7 @@ h1 {
     position: absolute;
     top: 0;
     left: 50%;
-    transform: translate(-50%, -150%);
+    transform: translate(-50%, 750%);
     transition: transform 0.4s ease-in;
 }
 
@@ -143,9 +143,9 @@ h1 {
     height: 100px;
 }
 
-.game-container img {
-    width: 200px
-    height: 200px;
+.game-container.lebron {
+    width: 200px;
+    height: 100px;
 
 }
 
