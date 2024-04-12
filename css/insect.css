@@ -143,4 +143,9 @@ h1 {
     height: 100px;
 }
 
+.game-container img {
+    width: 200px
+    height: 200px;
+    
+}
 
