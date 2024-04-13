@@ -85,6 +85,6 @@ function getRandomLocation() {
 
 function winGame() {
     if (score == 10) {
-        screens[2].classList.add('up')
+        
     }
 }

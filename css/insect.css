@@ -146,6 +146,10 @@ h1 {
 h6 img {
     width: 90vw;
     height: 80vh;
+    opacity: 0;
+}
 
+h6.visible {
+    opacity: 1;
 }
 
