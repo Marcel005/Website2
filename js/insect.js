@@ -5,6 +5,8 @@ const start_btn = document.getElementById('start-btn')
 const timeEl = document.getElementById('time')
 const scoreEl = document.getElementById('score')
 const message = document.getElementById('message')
+const lebron = document.getElementById('lebron')
+const lebaron = document.getElementById('lebaron')
 let seconds = 0
 let score = 0
 let selected_insect = {}
@@ -69,8 +71,21 @@ function addInsects() {
 
 function increaseScore() {
     score++
+    let s = seconds % 60
     if (score > 19) {
         message.classList.add('visible')
+    }
+    if (score > 59 && s < 31) {
+        lebron.classList.add('win')
+        pause()
+    }
+    if (score < 60 && s > 30) {
+        lebaron.classList.add('lose')
+        pause()
+    }
+    if (score == 0 && s > 30) {
+        lebaron.classList.add('lose')
+        pause()
     }
     scoreEl.innerHTML = `Score: ${score}`
 }
@@ -83,8 +98,3 @@ function getRandomLocation() {
     return {x, y}
 }
 
-function winGame() {
-    if (score == 10) {
-        
-    }
-}
