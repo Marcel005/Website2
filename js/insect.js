@@ -62,6 +62,15 @@ function increaseTime() {
     }
     timeEl.innerHTML = `Time: ${m}:${s}`
     seconds++
+
+    if (score > 59 && s < 31) {
+        lebron.classList.add('win')
+        pause()
+    }
+    if (score < 60 && s > 30) {
+        lebaron.classList.add('lose')
+        pause()
+    }
 }
 
 function addInsects() {
