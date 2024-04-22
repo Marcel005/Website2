@@ -6,7 +6,7 @@ const notification = document.getElementById('notification-container')
 const finalMessage = document.getElementById('final-message')
 const figureParts = document.querySelectorAll('.figure-part')
 
-const word = ['HogRider', 'Larry', 'MegaKnight', 'Lebron']
+const word = ['hogrider', 'larry', 'megaknight', 'lebron']
 
 let selectedIndex = Math.floor(word.length * Math.random())
 let selectedWord = word[selectedIndex]
@@ -44,6 +44,18 @@ window.addEventListener('keydown', e => {
         if (selectedWord.includes(letter)) {
             if (!correctLetters.includes(letter)) {
                 correctLetters.push(letter)
+
+                displayWord()
+            } else {
+                showNotification()
+            } else {
+                if (!wrongLetters.includes(letter)) {
+                    wrongLetters.push(letter)
+
+                    updateWrongLettersEl()
+                } else {
+                    showNotification()
+                }
             }
         }
     }
