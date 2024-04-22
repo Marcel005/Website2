@@ -31,7 +31,7 @@ function displayWord() {
 
     if (innerWord == selectedWord) {
         finalmessage.innerText = 'Congratulations! You Won!'
-        popup.style.display = flex
+        popup.style.display = 'flex'
     }
 }
 
