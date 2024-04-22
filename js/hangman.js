@@ -61,7 +61,19 @@ window.addEventListener('keydown', e => {
     }
 })
 
+//update wotn gletters
+function updateWrongLettersEl() {
+    console.log('noe')
+}
 
+//show noti
+function showNotification() {
+    notification.classList.add('show')
+
+    setTimeout(() => {
+        notification.classList.remove('show')
+    }, 2000)
+}
 
 displayWord()
 
