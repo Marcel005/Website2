@@ -27,6 +27,8 @@ function displayWord() {
         }
 
     `
+    const innerWord = wordEl.innerText.()
+    console.log(wordEl.innerText.replace(/\n/g, ''))
 }
 
 displayWord()
