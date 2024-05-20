@@ -124,3 +124,49 @@ h1 {
 .notification-container.show {
     transform: translateY(-50px);
 }
+
+.dropmenu {
+    background-color: #222;
+    color: #eee;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    width: 160px;
+}
+
+.menu {
+    position: absolute;
+    display: inline-block;
+    top: 0;
+    left: 0;
+    padding: 10px;
+}
+
+.work {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.work a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    justify-content: center;
+}
+
+.work a:hover {
+    background-color: #ddd;
+}
+
+.menu:hover .work {
+    display: block;
+}
+
+.menu:hover .dropmenu {
+    background-color: #444;
+}
