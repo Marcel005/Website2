@@ -1,12 +1,12 @@
 const wordEl = document.getElementById('word')
 const wrongLettersEl = document.getElementById('wrong-letters')
-const playAgainBtn = document.getElementById('play-again')
+const playAgainBtn = document.getElementById('play-button')
 const popup = document.getElementById('popup-container')
 const notification = document.getElementById('notification-container')
 const finalMessage = document.getElementById('final-message')
 const figureParts = document.querySelectorAll('.figure-part')
 
-const word = ['hogrider', 'larry', 'megaknight', 'lebron']
+const word = ['mouse', 'keyboard', 'screen', 'computer']
 
 let selectedIndex = Math.floor(word.length * Math.random())
 let selectedWord = word[selectedIndex]
@@ -30,7 +30,7 @@ function displayWord() {
     const innerWord = wordEl.innerText.replace(/\n/g, '')
 
     if (innerWord == selectedWord) {
-        finalmessage.innerText = 'Congratulations! You Won!'
+        finalMessage.innerText = 'Congratulations! You Won!'
         popup.style.display = 'flex'
     }
 }
@@ -46,24 +46,47 @@ window.addEventListener('keydown', e => {
                 correctLetters.push(letter)
 
                 displayWord()
-            } else {
+            }else {
                 showNotification()
-            } else {
+            }} else {
                 if (!wrongLetters.includes(letter)) {
                     wrongLetters.push(letter)
 
                     updateWrongLettersEl()
-                } else {
+                }else {
                     showNotification()
                 }
             }
         }
-    }
 })
 
 //update wotn gletters
 function updateWrongLettersEl() {
-    console.log('noe')
+    wrongLettersEl.innerHTML = `
+        ${wrongLetters.length > 0 ? '<p>Wrong</p>' : ''}
+        ${wrongLetters.map(letter => `<span>${letter}</span>`)}
+    `
+
+//dislpay parteys
+ figureParts.forEach((part, index) => {
+    const errors = wrongLetters.length
+
+    //check if lost
+ if (index < errors) {
+    part.style.display = 'block'
+ } else{
+    part.style.display = 'none'
+ }
+ })
+
+
+
+
+ //cehck loss
+ if (wrongLetters.length == figureParts.length) {
+    finalMessage.innerText = `Unfortunately you lost! The correct word was ${selectedWord}!`
+    popup.style.display = 'flex'
+ }
 }
 
 //show noti
@@ -74,6 +97,21 @@ function showNotification() {
         notification.classList.remove('show')
     }, 2000)
 }
+
+//restart gamed
+playAgainBtn.addEventListener('click', () => {
+    correctLetters.length = 0
+    wrongLetters.length = 0
+
+    selectedIndex = Math.floor(word.length * Math.random())
+    selectedWord = word[selectedIndex]
+
+    displayWord()
+
+    updateWrongLettersEl()
+
+    popup.style.display = 'none'
+})
 
 displayWord()
 
